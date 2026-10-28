@@ -5,6 +5,7 @@ import { BottomNav } from "@/components/shell/bottom-nav";
 import { SiteFooter } from "@/components/shell/site-footer";
 import { OfflineBanner } from "@/components/shell/offline-banner";
 import { ServiceWorkerRegister } from "@/components/shell/sw-register";
+import { BloodDropBackground } from "@/components/shell/blood-drop-background";
 import { ToastProvider } from "@/components/ui/toast";
 import "./globals.css";
 
@@ -26,7 +27,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col">
+      <body className="relative flex min-h-full flex-col">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:rounded focus:bg-charcoal focus:px-3 focus:py-2 focus:text-ivory"
@@ -34,9 +35,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <ToastProvider>
+          <BloodDropBackground />
           <OfflineBanner />
           <SiteHeader />
-          <main id="main" className="mx-auto w-full max-w-6xl flex-1 px-4 pb-24 md:px-6 md:pb-12">
+          <main id="main" className="relative z-10 mx-auto w-full max-w-6xl flex-1 px-4 pb-24 md:px-6 md:pb-12">
             {children}
           </main>
           <SiteFooter />
