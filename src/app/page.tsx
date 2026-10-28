@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Building2, Clock, HeartHandshake, Search, ShieldCheck } from "lucide-react";
+import { InteractiveBloodDrop } from "@/components/ui/interactive-blood-drop";
 
 const principles = [
   {
@@ -46,12 +47,17 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-        <aside className="rounded-[var(--radius-card)] border border-line bg-paper p-5">
-          <h2 className="font-display text-lg font-semibold">In an emergency</h2>
-          <p className="mt-2 text-sm leading-relaxed text-charcoal/80">
-            Contact the treating hospital or an authorized blood bank first. REDLINK helps widen the search; it cannot guarantee stock, compatibility or transfusion.
-          </p>
-        </aside>
+        <div className="flex flex-col items-center justify-end gap-5">
+          <div className="flex w-full items-center justify-center py-1">
+            <InteractiveBloodDrop size="medium" />
+          </div>
+          <aside className="w-full rounded-[var(--radius-card)] border border-line bg-paper p-5 shadow-sm">
+            <h2 className="font-display text-lg font-semibold">In an emergency</h2>
+            <p className="mt-2 text-sm leading-relaxed text-charcoal/80">
+              Contact the treating hospital or an authorized blood bank first. REDLINK helps widen the search; it cannot guarantee stock, compatibility or transfusion.
+            </p>
+          </aside>
+        </div>
       </section>
 
       <section aria-labelledby="principles" className="mt-16 border-t border-line pt-10">
